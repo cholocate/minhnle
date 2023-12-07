@@ -1,0 +1,40 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+ @import url("https://fonts.googleapis.com/css2?family=Quicksand:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2463c9;
+  --ifm-color-primary-dark: #2463c9;
+  --ifm-color-primary-darker: #2463c9;
+  --ifm-color-primary-darkest: #2463c9;
+  --ifm-color-primary-light: #2463c9;
+  --ifm-color-primary-lighter: #2463c9;
+  --ifm-color-primary-lightest: #2463c9;
+  --ifm-code-font-size: 95%;
+
+  --ifm-navbar-padding-vertical: 1rem;
+  --ifm-navbar-padding-horizontal: 2rem;
+  --ifm-navbar-height: 4rem;
+  --ifm-font-family-base: 'Quicksand'; 
+  
+  /* --ifm-font-family-monospace: 'Poppins'; */
+}
+
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #2463c9;
+  --ifm-color-primary-dark: #2463c9;
+  --ifm-color-primary-darker: #2463c9;
+  --ifm-color-primary-darkest: #2463c9;
+  --ifm-color-primary-light: #2463c9;
+  --ifm-color-primary-lighter: #2463c9;
+  --ifm-color-primary-lightest: #2463c9;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
