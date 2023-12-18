@@ -49,7 +49,42 @@ class Solution:
 ```
 
 ### [Course Schedule](https://leetcode.com/problems/course-schedule/)
+- DFS with cycle detection 
 
+**Intuition** 
+
+Creating the adjacency list is half of the problem already, you have to construct a graph of your choice (map, matrix, etc.), and then from there you keep track whether a prequisite has been seen when you are travelling through a prequisite path. If no cycle (previous prequisite) is detected, then we can finish the list of classes in some order. 
+
+**Observation** 
+
+Note that for a typical DFS traversal, we do not revisit a node once we have traversed through all the paths starting from that node (at least if we are not doing backtracking). Then for any remaining paths that has a traversed node as a prequisite, we can skip this repeated traversal (the node leading to the traversed node does not matter). We can either pop from the adjacency list the actual traversed node, or just create an additional $O(V)$ memory array `checked`, which doesn't really matter in the long term.  
+
+```python 
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        visited = [False for _ in range(numCourses)]
+        checked = [False for _ in range(numCourses)]
+        adj_list = defaultdict(set) 
+
+        for prereq in prerequisites: 
+            a, b = prereq 
+            adj_list[a].add(b)
+
+        def dfs(course):
+            if visited[course]:
+                return False 
+            visited[course]=True
+            for prereq in adj_list[course]: 
+                if not checked[prereq] and not dfs(prereq): 
+                    return False 
+            visited[course]=False
+            checked[course] = True 
+            return True 
+        
+
+        # if a course is visited and that course passes, we want to skip traversing this course 
+        return all(dfs(c) for c in range(numCourses))
+```
 
 
 ### [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
@@ -104,4 +139,64 @@ class Solution:
 
         bfs(0, 'JFK')                  
         return res[::-1]
+```
+
+### [Alien Dictionary](vhttps://leetcode.com/problems/alien-dictionary/) 
+
+- Topological Sorting 
+- Cycle Detection
+
+
+```python
+class Solution:
+    def alienOrder(self, words: List[str]) -> str:
+        stack=[] 
+        visited = defaultdict(bool) 
+        unique=set()
+        adj_list = defaultdict(set)
+        is_prefix = lambda x, y: x[:min(len(x),(len(y)))] == y[:min(len(x),(len(y)))] and len(x) > len(y) 
+        res = ""
+        for word in words: 
+            for c in word: 
+                unique.add(c) 
+            
+
+        for i in range(1, len(words)): 
+            w1 = list(words[i-1]) 
+            w2 = list(words[i])
+            if is_prefix(w1,w2): 
+                return res
+            while w1 and w2: 
+                c1 = w1.pop(0) 
+                c2 = w2.pop(0) 
+                if c1 != c2: 
+                    adj_list[c1].add(c2) 
+                    break
+            
+        def dfs(u) : 
+            # ensuring stack does not append excessively 
+            if visited[u]:
+                return True
+            visited[u] = True 
+            if u in adj_list: 
+                for v in adj_list[u]: 
+                    if dfs(v): 
+                        return True
+            # ambiguous 
+            if u not in stack: 
+                stack.append(u) 
+            visited[u] = False 
+
+        
+        for u in unique: 
+            if not visited[u]: 
+                if dfs(u):
+                    return res
+        
+        while stack: 
+            res += stack.pop() 
+        for u in unique: 
+            if u not in visited:
+                res += u 
+        return res 
 ```

@@ -1,5 +1,10 @@
 # Dijkstra's Algorithm 
 
+### Key Takeaways
+- Similar to how BFS works, for a graph without terminiating conditions, Dijsktra computes the shortest path from `source` to every other node in `G`. 
+- Make sure to make a distinction betwween directed and undirected graph when constructing the `adjacency` matrix or map. 
+
+
 ### Intuition 
 - Generate shortest spanning tree (greedily takes all nodes with a BFS approach (from source)) 
 - Let $SPS$ be shortest spanning set 
