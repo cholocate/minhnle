@@ -21,7 +21,7 @@ const sidebars = {
   tutorialSidebar: [
     {
       type: 'category',
-      label: 'Dummy',
+      label: 'Undergraduate Studies',
       items: ['Overview1'],
     },
     // 'tutorial-basics/congratulations',
@@ -57,7 +57,16 @@ const sidebars = {
             type: 'doc',
             id: 'leetcode/Backtracking/index'
           },
-          items:[]
+          items:['leetcode/Backtracking/StickersToSpellWord']
+        },
+        {
+          type: 'category',
+          label: 'Graph',
+          link: {
+            type: 'doc',
+            id: 'leetcode/Graph/index'
+          },
+          items:['leetcode/Graph/unionFind', 'leetcode/Graph/bellmanFord', 'leetcode/Graph/dijkstra']
         }
       ]
     }
