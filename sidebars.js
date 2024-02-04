@@ -67,6 +67,23 @@ const sidebars = {
             id: 'leetcode/Graph/index'
           },
           items:['leetcode/Graph/unionFind', 'leetcode/Graph/bellmanFord', 'leetcode/Graph/dijkstra']
+        },
+        {
+          type: 'category',
+          label: 'Company Specific',
+          link: {
+            type: 'generated-index'
+          },
+          items:[
+            {
+            type: 'category',
+            label: 'Amazon',
+            link: {
+              type: 'generated-index'
+            },
+            items:['leetcode/Companies/Amazon/hard', 'leetcode/Companies/Amazon/medium']
+            }
+          ]
         }
       ]
     }
