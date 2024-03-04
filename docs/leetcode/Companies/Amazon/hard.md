@@ -264,7 +264,7 @@ c[baa]a
 [cbaa]  -> 4
 ```
 
-```C++
+```c
 class Solution {
 public:
     int longestValidSubstring(string word, vector<string>& forbidden) {
@@ -303,7 +303,7 @@ public:
 - A node (envelope) is traversible if (depending on how you setup) the current envelope is bigger than the envelope being considered. 
 
 **Dynammic Programming with DFS**
-```Python
+```python
 class Solution:
     def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
 
@@ -375,7 +375,7 @@ As you can see, the case below works for numeric answer but not the actual.
 ```
 **Binary Search LIS and Sort by 1 Dimension**
 
-```Python
+```python
 from functools import cmp_to_key
 
 class Solution:
@@ -409,7 +409,7 @@ class Solution:
 ### Keynotes 
 - As long as the wall on the **opposite** side is the tallest, we can ensure that the water on ourside is trappable. 
 
-```Python 
+```python 
 
 class Solution:
     def trap(self, height: List[int]) -> int:

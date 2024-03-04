@@ -86,6 +86,16 @@ const sidebars = {
           ]
         }
       ]
+    },
+    {
+      type: 'category',
+      label: 'Operating Systems',
+      link: { 
+        type: 'doc', 
+        id: 'operating-system/index'
+      }, 
+      items: ['operating-system/022924', 'operating-system/030224', 'operating-system/030324']
+
     }
   ]
   

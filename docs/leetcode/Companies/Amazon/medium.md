@@ -36,7 +36,7 @@ class Solution:
 - From the pigeonhole principle, or something equivalent, we want to add the most frequent letters first to allow other fewer-appeared letters to be in the gap. Then we can just use a max heap, our condition meets if the letters are spaced out in a way that no adjacent letters are the same. 
 
 **Max heap** 
-```Python 
+```python 
 class Solution:
     def reorganizeString(self, s: str) -> str:
         res = "" 
@@ -88,7 +88,7 @@ aba ab since l2 is finished, we return True
 ```
 
 **Greedy 2 pointers** 
-```Python
+```python
 class Solution:
     def canMakeSubsequence(self, str1: str, str2: str) -> bool:
         # one operation per index. 
@@ -126,7 +126,7 @@ class Solution:
 - Same with the opposite case (logically)
 
 **Pairwise DP with positive and negative array** 
-```Python
+```python
 class Solution:
     def getMaxLen(self, nums: List[int]) -> int:
         dp = []
@@ -158,7 +158,7 @@ class Solution:
 - If the current is negative, the min is the current number, negative of the previous multiplying with this. 
 
 **Utilizing max and min to skip if conditions and returning max of the positive maximum dp array** 
-```Python
+```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         # dp[0][i] represents maximum for i elements
